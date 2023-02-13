@@ -13,6 +13,7 @@ namespace ConsoleApp1
     string Tags;
     string Topic;
     string PathToFile;
+    
     public virtual void GetInfo()
     {
       Console.WriteLine("введите: Имя, Автора, Ключевые слова, Тему, Путь к файлу : ");
@@ -22,6 +23,7 @@ namespace ConsoleApp1
       Topic = Convert.ToString(Console.ReadLine());
       PathToFile = Convert.ToString(Console.ReadLine());
     }
+    
     public virtual void Display()
     {
       Console.WriteLine(Name + " " + Author + " " + Tags + " " + Topic + " " + PathToFile);
@@ -31,6 +33,7 @@ namespace ConsoleApp1
   class WordDocument : Document
   {
     int WordsCount;
+    
     public override void GetInfo()
     {
       Console.WriteLine("Документ типа Word.");
@@ -38,6 +41,7 @@ namespace ConsoleApp1
       Console.WriteLine("укажите количество слов: ");
       WordsCount = Convert.ToInt32(Console.ReadLine());
     }
+    
     public override void Display()
     {
       base.Display();
@@ -48,6 +52,7 @@ namespace ConsoleApp1
   class PDFDocument : Document
   {
     int PagesCount;
+    
     public override void GetInfo()
     {
       Console.WriteLine("Документ типа PDF.");
@@ -55,6 +60,7 @@ namespace ConsoleApp1
       Console.WriteLine("укажите количество страниц: ");
       PagesCount = Convert.ToInt32(Console.ReadLine());
     }
+    
     public override void Display()
     {
       base.Display();
@@ -66,6 +72,7 @@ namespace ConsoleApp1
   {
     int LinesCount;
     int ColumnsCount;
+    
     public override void GetInfo()
     {
       Console.WriteLine("Документ типа Excel.");
@@ -74,6 +81,7 @@ namespace ConsoleApp1
       LinesCount = Convert.ToInt32(Console.ReadLine());
       ColumnsCount = Convert.ToInt32(Console.ReadLine());
     }
+    
     public override void Display()
     {
       base.Display();
@@ -84,6 +92,7 @@ namespace ConsoleApp1
   class TXTDocument : Document
   {
     int SymbolsCount;
+    
     public override void GetInfo()
     {
       Console.WriteLine("Документ типа TXT.");
@@ -91,6 +100,7 @@ namespace ConsoleApp1
       Console.WriteLine("укажите количество символов: ");
       SymbolsCount = Convert.ToInt32(Console.ReadLine());
     }
+    
     public override void Display()
     {
       base.Display();
@@ -101,6 +111,7 @@ namespace ConsoleApp1
   class HTMLDocument : Document
   {
     string WebPageTitle;
+    
     public override void GetInfo()
     {
       Console.WriteLine("Документ типа HTML.");
@@ -108,12 +119,14 @@ namespace ConsoleApp1
       Console.WriteLine("введите название сайта: ");
       WebPageTitle = Convert.ToString(Console.ReadLine());
     }
+    
     public override void Display()
     {
       base.Display();
       Console.WriteLine(" " + WebPageTitle);
     }
   }
+  
   public class Singleton
   {
     public static Singleton Instance
@@ -129,7 +142,7 @@ namespace ConsoleApp1
       string DocumentType;
       Console.WriteLine("укажите необходимый тип документа(Doc, Word, PDF, Excel, TXT, HTML):");
       DocumentType = Convert.ToString(Console.ReadLine());
-
+      
       switch (DocumentType)
       {
         case "Doc":
